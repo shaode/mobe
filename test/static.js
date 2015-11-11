@@ -4,7 +4,7 @@ var path = require('path')
 var supertest = require('supertest')
 require('should')
 
-describe('config.static', function() {
+describe('#static', function() {
     describe('#run(settings.static)', function() {
         it('config.static should return root + "./"', function() {
             $.run()

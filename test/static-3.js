@@ -4,7 +4,7 @@ var path = require('path')
 var supertest = require('supertest')
 require('should')
 
-describe('#readFile /test/ directory', function() {
+describe('#static-3', function() {
     it('should return this directory list', function() {
         $.run({
             root: __dirname + '/../'

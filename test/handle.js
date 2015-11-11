@@ -3,8 +3,8 @@ var request = require('request')
 require('should')
 var $ = require('../index')
 
-describe('controller.js handle', function(){
-  describe('handle url is exist', function(){
+describe('handle', function(){
+  describe('#handle url is exist', function(){
     $.run()
     var handle = require('../lib/controller').handle
     it('handle /demo/ GET should return "url is exist!"', function(){

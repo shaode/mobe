@@ -1,7 +1,7 @@
 var supertest = require('supertest')
 var $ = require('../index')
 
-describe('/fms/?type=handle', function(){
+describe('getHandle', function(){
     it('Request /fms/?type=handle should return handlers info ', function(done){        
         $.run()
         $.get({

@@ -4,7 +4,7 @@ var path = require('path')
 var supertest = require('supertest')
 require('should')
 
-describe('#readFile static.js', function() {
+describe('static-2', function() {
     it('should return this file contetn', function() {
         $.run({
             root: __dirname

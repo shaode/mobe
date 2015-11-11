@@ -3,7 +3,7 @@ var request = require('request')
 require('should')
 var $ = require('../index')
 
-describe('fms.run(settings) settings.ajax.res', function(){
+describe('ajax.settings.res', function(){
     it('/AEFBDF22-38DD-BF37-60F6-1348A8FBA5C6/ GET should return "{data:1}"', function(done){
         $.run()
         $.ajax({
