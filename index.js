@@ -7,21 +7,22 @@
     Contact - 联系作者  : nimo.jser[at]gmail.com http://weibo.com/nimojs
     Help - 帮助 : https://github.com/nimojs/fms/issues/new
                                                                         */
+var fms = {
+
+}
+module.exports = fms
 var ajax = require('./lib/ajax')
 var doc = require('./lib/doc')
-module.exports = {
-    run: require('./lib/init'),
-    chance: require('chance'),
-    app: null,
-    _set: function (name, value) {
-        this[name] = value
-    },
-    ajax: ajax.ajax,
-    get: ajax.get,
-    post: ajax.post,
-    delete: ajax.delete,
-    put: ajax.put,
-    view: require('./lib/view'),
-    doc: doc.addDoc,
-    docFile: doc.docFile
+fms.run = require('./lib/init'),
+fms.chance = require('chance')
+fms._set = function (name, value) {
+    this[name] = value
 }
+fms.ajax = ajax.ajax
+fms.get = ajax.get
+fms.post = ajax.post
+fms.delete = ajax.delete
+fms.put = ajax.put
+fms.view = require('./lib/view')
+fms.doc = doc.addDoc
+fms.docFile = doc.docFile
