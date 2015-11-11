@@ -68,7 +68,7 @@
                 <select class="js-select-cookie">
                 {{#is mode 'view'}}<option value="__default">__default</option>{{/is}}
                 {{#each res}}
-                    <option {{#is ../active_res this}}selected{{/is}} value="{{../url}}:{{../mode}}:{{../type}}:{{this}}">{{this}}</option>
+                    <option {{#is ../active_res this}}selected{{/is}} value="{{../url}}`{{../mode}}`{{../type}}`{{this}}">{{this}}</option>
                 {{/each}}
                 </select>
                 <pre></pre>
@@ -167,7 +167,7 @@ $(function () {
         if (value === '__default') {
             return
         }
-        var $this = $(this)
+        var $this = $(this)        
         fms.res(value, $this.next('pre'))
     })
     $(".js-resetAJAXCookie").on('click', function () {
