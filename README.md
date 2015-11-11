@@ -6,8 +6,8 @@
 [![NPM downloads](http://img.shields.io/npm/dm/fms.svg?style=flat)](https://npmjs.org/package/fms)
 
 
-<a href="http://fms.help/" target="_blank" class="btn btn-info">在线文档</a>
-<a href="http://demo.fms.help/" target="_blank" class="btn btn-danger">在线示例</a>
+<a href="http://fmsjs.org/" target="_blank" class="btn btn-info">在线文档</a>
+<a href="http://demo.fmsjs.org/" target="_blank" class="btn btn-danger">在线示例</a>
 
 ## FMS 提供了一套解决方案
 前端基于 FMS 可以独立完成Web数据模拟(AJAX、后端模板引擎渲染页面)。
@@ -32,7 +32,7 @@ fms.ajax({
 })
 ```
 
-http://demo.fms.help/demo/
+http://demo.fmsjs.org/demo/
 
 ### 自动生成数据文档
 <table>
@@ -61,7 +61,7 @@ fms.ajax({
             </pre>
         </td>
         <td>
-            <img src="http://fms.help/static/img/readme-1.png"  />
+            <img src="http://fmsjs.org/static/img/readme-1.png"  />
         </td>
     </tr>
 </table>
@@ -72,4 +72,4 @@ fms.ajax({
 - [PHP Smarty](https://github.com/nimojs/fms-smarty)
 
 
-下一篇：[前端数据模拟痛点](http://fms.help/why-use-fms.html)
+下一篇：[前端数据模拟痛点](http://fmsjs.org/why-use-fms.html)
