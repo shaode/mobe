@@ -28,3 +28,5 @@ script:
 - npm run test11
 - npm run test12
 - npm run test13
+- npm run test14
+- npm run test15

@@ -1,7 +1,7 @@
 {
   "homepage": "http://fms.help",
   "name": "fms",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "前端数据模拟环境，提供 AJAX 模拟与后端 MVC 中 View 层渲染模拟解决方案。",
   "main": "index.js",
   "author": {
@@ -22,7 +22,9 @@
     "test10": "mocha test/static-3.js",
     "test11": "mocha test/ajax.settings.res.js",
     "test12": "mocha test/restful.js",
-    "test13": "mocha test/ajax.js"
+    "test13": "mocha test/ajax.js",
+    "test14": "mocha test/fms.get.js",
+    "test15": "mocha test/config.res-fms.get.js"
   },
   "license": "MIT",
   "dependencies": {

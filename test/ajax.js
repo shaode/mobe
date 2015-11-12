@@ -3,6 +3,7 @@ var fs = require('fs')
 var path = require('path')
 var supertest = require('supertest')
 require('should')
+var iUtil = require('./util')
 
 describe('#ajax', function() {
     $.run()
@@ -29,6 +30,14 @@ describe('#ajax', function() {
             err: 'POST error'
         }
     })
+    $.ajax('/url-settings/', {
+        type: 'get',
+        res: {
+            ok :1,
+            err :2
+        }
+    })
+
     var server = supertest($.app)
     it('should return  GET success', function(done) {
             server
@@ -39,7 +48,7 @@ describe('#ajax', function() {
     it('should return  GET error', function(done) {
             server
             .get('/user/')
-            .set('Cookie', 'fms={%22/user/%22:{%22ajax%22:{%22GET%22:%22err%22}}}')
+            .set('Cookie', iUtil.res('/user/`ajax`get`err'))
             .expect('GET error')
             .expect(200, done)
     })
@@ -52,8 +61,21 @@ describe('#ajax', function() {
     it('should return  POST error', function(done) {
             server
             .post('/user/')
-            .set('Cookie', 'fms={%22/user/%22:{%22ajax%22:{%22POST%22:%22err%22}}}')
+            .set('Cookie', iUtil.res('/user/`ajax`post`err'))
             .expect('POST error')
+            .expect(200, done)
+    })
+    it('/url-settings/ should return  1', function(done) {
+            server
+            .get('/url-settings/')
+            .expect('1')
+            .expect(200, done)
+    })
+    it('/url-settings/ should return  2', function(done) {
+            server
+            .get('/url-settings/')
+            .set('Cookie', iUtil.res('/url-settings/`ajax`get`err'))
+            .expect('2')
             .expect(200, done)
     })
 })
