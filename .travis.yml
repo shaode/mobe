@@ -13,20 +13,23 @@ only:
 install:
 - npm install
 - npm install mocha -g
+
 script:
-- npm run test
-- npm run test1
-- npm run test2
-- npm run test3
-- npm run test4
-- npm run test5
-- npm run test6
-- npm run test7
-- npm run test8
-- npm run test9
-- npm run test10
-- npm run test11
-- npm run test12
-- npm run test13
-- npm run test14
-- npm run test15
+- mocha test/port.js
+- mocha test/port.js"
+- mocha test/connect.js"
+- mocha test/port.js"
+- mocha test/cookies-fms.js"
+- mocha test/getHandle.js"
+- mocha test/handle.js"
+- mocha test/password.js"
+- mocha test/port.js"
+- mocha test/static.js"
+- mocha test/static-2.js"
+- mocha test/static-3.js"
+- mocha test/ajax.settings.res.js"
+- mocha test/restful.js"
+- mocha test/ajax.js"
+- mocha test/fms.get.js"
+- mocha test/config.res-fms.get.js"
+- mocha test/view.res.js
