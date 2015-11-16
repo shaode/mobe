@@ -30,3 +30,4 @@ script:
 - npm run test13
 - npm run test14
 - npm run test15
+- npm run test16
