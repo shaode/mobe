@@ -15,6 +15,8 @@ var ajax = require('./lib/ajax')
 var doc = require('./lib/doc')
 fms.run = require('./lib/init'),
 fms.chance = require('chance')
+fms.Mock = require('mockjs')
+fms.Random = require('mockjs').Random
 fms._set = function (name, value) {
     this[name] = value
 }

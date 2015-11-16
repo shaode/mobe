@@ -24,7 +24,8 @@
     "test12": "mocha test/restful.js",
     "test13": "mocha test/ajax.js",
     "test14": "mocha test/fms.get.js",
-    "test15": "mocha test/config.res-fms.get.js"
+    "test15": "mocha test/config.res-fms.get.js",
+    "test16": "mocha test/doc.js"
   },
   "license": "MIT",
   "dependencies": {
@@ -42,6 +43,7 @@
     "iqrcode": "0.0.2",
     "marked": "^0.3.3",
     "mime": "^1.3.4",
+    "mockjs": "^0.1.10",
     "readdir": "0.0.13",
     "request": "^2.60.0",
     "underscore": "^1.8.3"
