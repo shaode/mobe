@@ -1,5 +1,5 @@
 {
-  "homepage": "http://fms.help",
+  "homepage": "http://fmsjs.org",
   "name": "fms",
   "version": "0.0.23",
   "description": "前端数据模拟环境，提供 AJAX 模拟与后端 MVC 中 View 层渲染模拟解决方案。",
@@ -8,24 +8,9 @@
     "name": "nimojs",
     "email": "nimo.jser@gmail.com"
   },
-  "scripts": {
-    "test": "mocha test/port.js",
-    "test1": "mocha test/connect.js",
-    "test2": "mocha test/port.js",
-    "test3": "mocha test/cookies-fms.js",
-    "test4": "mocha test/getHandle.js",
-    "test5": "mocha test/handle.js",
-    "test6": "mocha test/password.js",
-    "test7": "mocha test/port.js",
-    "test8": "mocha test/static.js",
-    "test9": "mocha test/static-2.js",
-    "test10": "mocha test/static-3.js",
-    "test11": "mocha test/ajax.settings.res.js",
-    "test12": "mocha test/restful.js",
-    "test13": "mocha test/ajax.js",
-    "test14": "mocha test/fms.get.js",
-    "test15": "mocha test/config.res-fms.get.js",
-    "test16": "mocha test/doc.js"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimojs/fms"
   },
   "license": "MIT",
   "dependencies": {
@@ -48,10 +33,28 @@
     "request": "^2.60.0",
     "underscore": "^1.8.3"
   },
-  "readmeFilename": "README.md",
   "devDependencies": {
     "portfinder": "^0.4.0",
     "supertest": "^1.1.0",
     "should": "7.0.2"
+  },
+  "scripts": {
+    "test": "mocha test/port.js",
+    "test1": "mocha test/connect.js",
+    "test2": "mocha test/port.js",
+    "test3": "mocha test/cookies-fms.js",
+    "test4": "mocha test/getHandle.js",
+    "test5": "mocha test/handle.js",
+    "test6": "mocha test/password.js",
+    "test7": "mocha test/port.js",
+    "test8": "mocha test/static.js",
+    "test9": "mocha test/static-2.js",
+    "test10": "mocha test/static-3.js",
+    "test11": "mocha test/ajax.settings.res.js",
+    "test12": "mocha test/restful.js",
+    "test13": "mocha test/ajax.js",
+    "test14": "mocha test/fms.get.js",
+    "test15": "mocha test/config.res-fms.get.js",
+    "test16": "mocha test/doc.js"
   }
 }
