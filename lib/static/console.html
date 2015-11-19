@@ -26,7 +26,7 @@
                 <nav class="menu ajaxlist">
                     <span class="menu-heading ">
                         AJAX
-                        <span class="menu-heading-more reset-cookie js-resetAJAXCookie">Reset</span>
+                        <span class="menu-heading-more reset-cookie js-resetCookie">Reset</span>
                     </span>
                     <div class="nav" id="ajaxlist">
                         <div class="loading">Loading...</div>
@@ -36,7 +36,7 @@
             <div class="one-half column">
                 <div class="menu Views">
                     <span class="menu-heading ">Views
-                    <span class="menu-heading-more reset-cookie js-resetAJAXCookie">Reset</span>
+                    <span class="menu-heading-more reset-cookie js-resetCookie">Reset</span>
                     </span>
                     <div id="Viewlist"><div class="loading">Loading...</div></div>
                     <div id="ReadList"><div class="loading">Loading...</div></div>
@@ -170,9 +170,13 @@ $(function () {
         var $this = $(this)        
         fms.res(value, $this.next('pre'))
     })
-    $(".js-resetAJAXCookie").on('click', function () {
+    $(".js-resetCookie").on('click', function () {
         fms.reset()
-        renderList()
+        $('.js-select-cookie').each(function () {
+            var $this = $(this)
+            console.log($this.find('option').eq(0).get(0))
+            $this.find('option').eq(0).prop('selected', true)
+        })
     })
 })
     </script>
