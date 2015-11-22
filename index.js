@@ -1,7 +1,7 @@
 'use strict'
                                                                         /*
-    Docs - 文档         : http://fms.help
-    Demo - 示例      : http://demo.fms.help
+    Docs - 文档         : http://fmsjs.org
+    Demo - 示例      : http://demo.fmsjs.org
     Community - 社区    : https://github.com/nimojs/fms/issues
     Github             : https://github.com/nimojs/fms
     Contact - 联系作者  : nimo.jser[at]gmail.com http://weibo.com/nimojs
