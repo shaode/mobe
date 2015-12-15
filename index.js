@@ -28,3 +28,4 @@ fms.put = ajax.put
 fms.view = require('./lib/view')
 fms.doc = doc.addDoc
 fms.docFile = doc.docFile
+fms.call = require('./lib/call')
