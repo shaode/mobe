@@ -1,7 +1,7 @@
 # FMS 
 > Front Mock Server | 前端数据模拟服务器
 
-[![Build Status](https://api.travis-ci.org/nimojs/fms.svg)](https://travis-ci.org/nimojs/fms)
+[![Build Status](https://api.travis-ci.org/mobejs/mobe.svg)](https://travis-ci.org/mobejs/mobe)
 [![NPM version](https://img.shields.io/npm/v/fms.svg?style=flat)](https://npmjs.org/package/fms)
 [![NPM downloads](http://img.shields.io/npm/dm/fms.svg?style=flat)](https://npmjs.org/package/fms)
 
