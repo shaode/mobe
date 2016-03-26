@@ -38,6 +38,22 @@ describe('#ajax', function() {
         }
     })
 
+    $.ajax('/url-_fms/', {
+        type: 'get',
+        res: {
+            ok :1,
+            err :2
+        }
+    })
+
+    $.ajax('/url-_fms/', {
+        type: 'post',
+        res: {
+            ok :1,
+            err :'post2'
+        }
+    })
+
     var server = supertest($.app)
     it('should return  GET success', function(done) {
             server
@@ -77,5 +93,18 @@ describe('#ajax', function() {
             .set('Cookie', iUtil.res('/url-settings/`ajax`get`err'))
             .expect('2')
             .expect(200, done)
+    })
+    it('get /url-_fms/ should return 2', function (done) {
+        server
+        .get('/url-_fms/?_fms=err')
+        .expect('2')
+        .expect(200, done)
+    })
+    it('get /url-_fms/ should return 2', function (done) {
+        server
+        .post('/url-_fms/?_fms=err')
+         .send('{"_fms":"err"}')
+        .expect('post2')
+        .expect(200, done)
     })
 })
