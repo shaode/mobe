@@ -9,7 +9,7 @@ var portfinder = require('../lib/vendor/portfinder')
 
 describe('server.js', function() {
     describe('# basic server run', function () {
-        it('# "/" should return "Cannot GET /"', function (done) {
+        it('# listen server', function (done) {
             var app
             portfinder.getPort(function (err, port) {
                 app = mobe({port: port})
