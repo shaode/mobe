@@ -34,5 +34,27 @@ describe('server.js', function() {
                .expect('{"name":"mobe"}')
                .expect(200, done)
         })
+        it('# get', function (done) {
+            var app = mobe({autoListen: false})
+            var server = supertest(app.app)
+            app.app.get('/get/', function (req, res) {
+                res.send(req.query)
+            })
+            server
+               .get('/get/?name=getmobe')
+               .expect('{"name":"getmobe"}')
+               .expect(200, done)
+        })
+        it('# post', function (done) {
+            var app = mobe({autoListen: false})
+            var server = supertest(app.app)
+            app.app.get('/post/', function (req, res) {
+                res.send(req.query)
+            })
+            server
+               .get('/post/?name=postmobe')
+               .expect('{"name":"postmobe"}')
+               .expect(200, done)
+        })
     })
 })
