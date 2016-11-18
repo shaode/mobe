@@ -34,7 +34,7 @@ app.ajax({
     title: '提交新闻',
     url: '/news',
     type: 'post',
-    req: [
+    param: [
         {
             name: 'title',
             value: '今日XX发射导弹',
