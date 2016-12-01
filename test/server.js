@@ -112,8 +112,8 @@ describe('server.js', function() {
                 })
         })
     })
-    describe('# cookie', function () {
-        it('# cookieParser', function (done) {
+    describe('# cookieParser', function () {
+        it('req.cookies', function (done) {
             var app = mose({autoListen: false})
             var server = supertest(app.app)
             app.app.get('/cookieParser/', function (req, res) {
@@ -125,17 +125,23 @@ describe('server.js', function() {
                .expect('{"name":"mose"}')
                .expect(200, done)
         })
-        it('# get', function (done) {
+        it('res.cookie', function (done) {
             var app = mose({autoListen: false})
             var server = supertest(app.app)
-            app.app.get('/get/', function (req, res) {
-                res.send(req.query)
+            app.app.get('/cookieParser/', function (req, res) {
+                res.cookie('name', 'nimo')
+                res.send('res.cookie')
             })
             server
-               .get('/get/?name=getmose')
-               .expect('{"name":"getmose"}')
-               .expect(200, done)
+               .get('/cookieParser/')
+               .end(function(err, res){
+                    var val = ['name=nimo; Path=/']
+                    assert.deepEqual(res.headers['set-cookie'], val)
+                    done()
+              })
         })
+    })
+    describe('# bodyParser', function () {
         it('# post', function (done) {
             var app = mose({autoListen: false})
             var server = supertest(app.app)
