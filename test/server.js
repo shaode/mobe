@@ -8,8 +8,8 @@ var mose = require('../index')
 var portfinder = require('../lib/vendor/portfinder')
 
 describe('server.js', function() {
-    describe('# basic server run', function () {
-        it('# listen port', function (done) {
+    describe('# config.port', function () {
+        it('listen port', function (done) {
             var app
             portfinder.getPort(function (err, port) {
                 app = mose({port: port})
@@ -22,7 +22,7 @@ describe('server.js', function() {
                 })
             })
         })
-        it('# listen hasport default', function (done) {
+        it('hashport default', function (done) {
             var app
             var url = 'http://127.0.0.1:50918'
             req(url, function (error, response, body) {
@@ -43,7 +43,7 @@ describe('server.js', function() {
                 })
             })
         })
-        it('# listen hasport name:nimo', function (done) {
+        it('hasport "nimo"', function (done) {
             var app
             var url = 'http://127.0.0.1:58484'
             req(url, function (error, response, body) {
@@ -64,6 +64,55 @@ describe('server.js', function() {
                 })
             })
         })
+    })
+    describe('# config.CORS', function () {
+        it('default open cors', function (done) {
+            var app = mose({autoListen: false})
+            var server = supertest(app.app)
+            app.app.get('/cors/', function (req, res) {
+                res.send('any text')
+            })
+            server
+                .get('/cors/')
+                .expect(200, function (err, res) {
+                    if (err) return done(err);
+                    var headers = res.headers;
+                    assert.deepEqual(headers['access-control-allow-origin'], '*')
+                    done()
+                })
+        })
+        it('open cors', function (done) {
+            var app = mose({CORS: true, autoListen: false})
+            var server = supertest(app.app)
+            app.app.get('/cors/', function (req, res) {
+                res.send('any text')
+            })
+            server
+                .get('/cors/')
+                .expect(200, function (err, res) {
+                    if (err) return done(err);
+                    var headers = res.headers;
+                    assert.deepEqual(headers['access-control-allow-origin'], '*')
+                    done()
+                })
+        })
+        it('close cors', function (done) {
+            var app = mose({CORS: false, autoListen: false})
+            var server = supertest(app.app)
+            app.app.get('/cors/', function (req, res) {
+                res.send('any text')
+            })
+            server
+                .get('/cors/')
+                .expect(200, function (err, res) {
+                    if (err) return done(err);
+                    var headers = res.headers;
+                    assert.deepEqual(headers['access-control-allow-origin'], undefined)
+                    done()
+                })
+        })
+    })
+    describe('# cookie', function () {
         it('# cookieParser', function (done) {
             var app = mose({autoListen: false})
             var server = supertest(app.app)
