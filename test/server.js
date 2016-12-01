@@ -141,6 +141,7 @@ describe('server.js', function() {
               })
         })
     })
+    // TODO:// 测试各种方式的文件上传
     describe('# bodyParser', function () {
         it('# post', function (done) {
             var app = mose({autoListen: false})
