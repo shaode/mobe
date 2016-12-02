@@ -13,18 +13,18 @@ describe('server.js', function() {
             var app
             portfinder.getPort(function (err, port) {
                 app = mose({port: port})
-                req('http://127.0.0.1:' + app.config.port, function (error, response, body) {
+                req('http://127.0.0.1:' + app.config.port + '/______nothisurl', function (error, response, body) {
                     if (error) {
                         throw error
                     }
-                    expect(body).to.equal('Cannot GET /\n')
+                    expect(body).to.equal('Cannot GET /______nothisurl\n')
                     done()
                 })
             })
         })
         it('hashport default', function (done) {
             var app
-            var url = 'http://127.0.0.1:50918'
+            var url = 'http://127.0.0.1:50918/______nothisurl'
             req(url, function (error, response, body) {
                 if (error) {
                     if (error.message === 'connect ECONNREFUSED 127.0.0.1:50918') {
@@ -38,14 +38,14 @@ describe('server.js', function() {
                     if (error) {
                         throw error
                     }
-                    expect(body).to.equal('Cannot GET /\n')
+                    expect(body).to.equal('Cannot GET /______nothisurl\n')
                     done()
                 })
             })
         })
         it('hasport "nimo"', function (done) {
             var app
-            var url = 'http://127.0.0.1:58484'
+            var url = 'http://127.0.0.1:58484/______nothisurl'
             req(url, function (error, response, body) {
                 if (error) {
                     if (error.message === 'connect ECONNREFUSED 127.0.0.1:58484') {
@@ -59,7 +59,7 @@ describe('server.js', function() {
                     if (error) {
                         throw error
                     }
-                    expect(body).to.equal('Cannot GET /\n')
+                    expect(body).to.equal('Cannot GET /______nothisurl\n')
                     done()
                 })
             })
