@@ -60,7 +60,7 @@ describe('mose.constructor.js', function() {
         it('read uniq', function () {
             expect(
                 JSON.stringify(
-                    mose({read: ['./view', './some', './view']}).config.read
+                    mose({autoListen:false, read: ['./view', './some', './view']}).config.read
                 )
             ).to.equal('["./view","./some"]')
         })
