@@ -155,4 +155,25 @@ describe('server.js', function() {
                .expect(200, done)
         })
     })
+    describe('# config.connect', function () {
+        it('connect', function (done) {
+            var app = mose({
+                autoListen: false,
+                connect:[
+                    function (req, res, next) {
+                        res._mose_test_connect_add_sometext = 'mose'
+                        next()
+                    }
+                ]
+            })
+            var server = supertest(app.app)
+            app.app.get('/connect/', function (req, res) {
+                res.send(res._mose_test_connect_add_sometext)
+            })
+            server
+               .get('/connect/')
+               .expect('mose')
+               .expect(200, done)
+        })
+    })
 })
