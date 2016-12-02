@@ -8,7 +8,7 @@ var mose = require('../index')
 var path = require('path')
 
 describe('mose.constructor.js', function() {
-    describe('# static', function () {
+    describe('# root static templatedDir', function () {
         it('default root', function () {
             var app = mose({autoListen: false})
             expect(app.config.root).to.equal(process.cwd())
