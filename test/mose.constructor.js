@@ -56,4 +56,13 @@ describe('mose.constructor.js', function() {
             expect(app.config.render.templatedDir).to.equal(__dirname)
         })
     })
+    describe('# read', function () {
+        it('read uniq', function () {
+            expect(
+                JSON.stringify(
+                    mose({read: ['./view', './some', './view']}).config.read
+                )
+            ).to.equal('["./view","./some"]')
+        })
+    })
 })
