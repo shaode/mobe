@@ -14,7 +14,7 @@ describe('action.js', function() {
         it('Please change "title" or "type', function (done) {
             try{
                 action.add({
-                    url: '/news',
+                    url: '/actions.add.test1',
                     type: 'get',
                     title: '获取全部新闻',
                     match: {
@@ -24,7 +24,7 @@ describe('action.js', function() {
                     }
                 })
                 action.add({
-                    url: '/news',
+                    url: '/actions.add.test1',
                     type: 'get',
                     title: '获取全部新闻',
                     match: {
@@ -43,32 +43,53 @@ describe('action.js', function() {
             }
         })
         it('url === url ,type === type, title !== title', function (done) {
-            try{
-                action.add({
-                    url: '/testnews',
-                    type: 'get',
-                    title: '获取全部新闻',
-                    match: {
-                        get: {
-                            type: 'all'
-                        }
+            action.add({
+                url: '/actions.add.test2',
+                type: 'get',
+                title: '获取全部新闻',
+                match: {
+                    get: {
+                        type: 'all'
                     }
-                })
-                action.add({
-                    url: '/testnews',
-                    type: 'get',
-                    title: '获取热点新闻',
-                    match: {
-                        get: {
-                            type: 'hot'
-                        }
+                }
+            })
+            action.add({
+                url: '/actions.add.test2',
+                type: 'get',
+                title: '获取热点新闻',
+                match: {
+                    get: {
+                        type: 'hot'
                     }
-                })
-            }
-            catch(err) {
-                if(err) {throw err}
-                done()
-            }
+                }
+            })
+            done()
+        })
+        it('url === url ,type !== type, title === title', function (done) {
+            action.add({
+                url: '/actions.add.test3',
+                type: 'get',
+                title: '登录'
+            })
+            action.add({
+                url: '/actions.add.test3',
+                type: 'post',
+                title: '登录'
+            })
+            done()
+        })
+        it('url !== url ,type === type, title === title', function (done) {
+            action.add({
+                url: '/actions.add.test4',
+                type: 'get',
+                title: '登录'
+            })
+            action.add({
+                url: '/actions.add.test4444444',
+                type: 'get',
+                title: '登录'
+            })
+            done()
         })
     })
 })
