@@ -11,7 +11,7 @@ var action = require('../lib/action')
 
 describe('action.js', function() {
     describe('# add', function () {
-        it('Please change "title" or "type', function (done) {
+        it('Please change match || type || url', function (done) {
             try{
                 action.add({
                     url: '/actions.add.test1',
@@ -29,15 +29,14 @@ describe('action.js', function() {
                     title: '获取全部新闻',
                     match: {
                         get: {
-                            type: 'hot'
+                            type: 'all'
                         }
                     }
                 })
             }
             catch(err) {
-                expect(err.message).to.match(/## Please change title or type/)
+                expect(err.message).to.match(/Please change match \|\| type \|\| url/)
                 expect(err.message).to.match(/match: \{"get":\{"type":"all"\}\}/)
-                expect(err.message).to.match(/match: \{"get":\{"type":"hot"\}\}/)
                 expect(err.message).to.match(/already existing/)
                 done()
             }
