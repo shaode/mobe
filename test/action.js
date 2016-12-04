@@ -24,6 +24,20 @@ describe('action.js', function() {
             expect(app.actions['/demo'][0].url).to.equal('/demo')
             done()
         })
+        it('Revise url', function (done) {
+            var app = mose({listen: false})
+            app.ajax({
+                type: 'get',
+                url: 'some'
+            })
+            app.ajax({
+                type: 'get',
+                url: '/foo'
+            })
+            expect(app.actions['/some'].length).to.equal(1)
+            expect(app.actions['/foo'].length).to.equal(1)
+            done()
+        })
     })
     describe('# add', function () {
         it('Please change match || type || url', function (done) {
