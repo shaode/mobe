@@ -11,6 +11,32 @@ var mose = require("../")
 
 describe('action.js', function() {
     describe('# trim attr', function (){
+        it('url should be a string', function (done) {
+            var app = mose({listen: false})
+            try{
+                app.ajax({
+                    type: 'get'
+                })
+            }
+            catch (err) {
+                expect(err.message).to.match(/app.ajax\(settings\)/)
+                expect(err.message).to.match(/settings\.url should be a string/)
+                done()
+            }
+        })
+        it('type should be a string', function (done) {
+            var app = mose({listen: false})
+            try{
+                app.ajax({
+                    url: '/demo'
+                })
+            }
+            catch (err) {
+                expect(err.message).to.match(/app.ajax\(settings\)/)
+                expect(err.message).to.match(/settings\.type should be a string/)
+                done()
+            }
+        })
         it('title url type', function (done) {
             var app = mose({listen: false})
             app.ajax({
