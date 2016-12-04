@@ -7,13 +7,29 @@ var chai = require('chai')
 var expect = chai.expect
 var should = chai.should
 var assert = chai.assert
-var action = require('../lib/action')
+var mose = require("../")
 
 describe('action.js', function() {
+    describe('# trim attr', function (){
+        it('title url type', function (done) {
+            var app = mose({listen: false})
+            app.ajax({
+                type: '  get  ',
+                url: '  /demo   ',
+                title: '  some   '
+            })
+
+            expect(app.actions['/demo'][0].type).to.equal('GET')
+            expect(app.actions['/demo'][0].title).to.equal('some')
+            expect(app.actions['/demo'][0].url).to.equal('/demo')
+            done()
+        })
+    })
     describe('# add', function () {
         it('Please change match || type || url', function (done) {
+            var app = mose({listen:false})
             try{
-                action.add({
+                app.ajax({
                     url: '/actions.add.test1',
                     type: 'get',
                     title: '获取全部新闻',
@@ -23,7 +39,7 @@ describe('action.js', function() {
                         }
                     }
                 })
-                action.add({
+                app.ajax({
                     url: '/actions.add.test1',
                     type: 'get',
                     title: '获取全部新闻',
@@ -42,7 +58,8 @@ describe('action.js', function() {
             }
         })
         it('url === url ,type === type, title !== title', function (done) {
-            action.add({
+            var app = mose({listen:false})
+            app.ajax({
                 url: '/actions.add.test2',
                 type: 'get',
                 title: '获取全部新闻',
@@ -52,7 +69,7 @@ describe('action.js', function() {
                     }
                 }
             })
-            action.add({
+            app.ajax({
                 url: '/actions.add.test2',
                 type: 'get',
                 title: '获取热点新闻',
@@ -65,12 +82,13 @@ describe('action.js', function() {
             done()
         })
         it('url === url ,type !== type, title === title', function (done) {
-            action.add({
+            var app = mose({listen:false})
+            app.ajax({
                 url: '/actions.add.test3',
                 type: 'get',
                 title: '登录'
             })
-            action.add({
+            app.ajax({
                 url: '/actions.add.test3',
                 type: 'post',
                 title: '登录'
@@ -78,12 +96,13 @@ describe('action.js', function() {
             done()
         })
         it('url !== url ,type === type, title === title', function (done) {
-            action.add({
+            var app = mose({listen:false})
+            app.ajax({
                 url: '/actions.add.test4',
                 type: 'get',
                 title: '登录'
             })
-            action.add({
+            app.ajax({
                 url: '/actions.add.test4444444',
                 type: 'get',
                 title: '登录'

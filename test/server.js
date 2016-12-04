@@ -67,7 +67,7 @@ describe('server.js', function() {
     })
     describe('# config.CORS', function () {
         it('default open cors', function (done) {
-            var app = mose({autoListen: false})
+            var app = mose({listen: false})
             var server = supertest(app.app)
             app.app.get('/cors/', function (req, res) {
                 res.send('any text')
@@ -82,7 +82,7 @@ describe('server.js', function() {
                 })
         })
         it('open cors', function (done) {
-            var app = mose({CORS: true, autoListen: false})
+            var app = mose({CORS: true, listen: false})
             var server = supertest(app.app)
             app.app.get('/cors/', function (req, res) {
                 res.send('any text')
@@ -97,7 +97,7 @@ describe('server.js', function() {
                 })
         })
         it('close cors', function (done) {
-            var app = mose({CORS: false, autoListen: false})
+            var app = mose({CORS: false, listen: false})
             var server = supertest(app.app)
             app.app.get('/cors/', function (req, res) {
                 res.send('any text')
@@ -114,7 +114,7 @@ describe('server.js', function() {
     })
     describe('# cookieParser', function () {
         it('req.cookies', function (done) {
-            var app = mose({autoListen: false})
+            var app = mose({listen: false})
             var server = supertest(app.app)
             app.app.get('/cookieParser/', function (req, res) {
                 res.send(req.cookies)
@@ -126,7 +126,7 @@ describe('server.js', function() {
                .expect(200, done)
         })
         it('res.cookie', function (done) {
-            var app = mose({autoListen: false})
+            var app = mose({listen: false})
             var server = supertest(app.app)
             app.app.get('/cookieParser/', function (req, res) {
                 res.cookie('name', 'nimo')
@@ -144,7 +144,7 @@ describe('server.js', function() {
     // TODO:// 测试各种方式的文件上传
     describe('# bodyParser', function () {
         it('# post', function (done) {
-            var app = mose({autoListen: false})
+            var app = mose({listen: false})
             var server = supertest(app.app)
             app.app.get('/post/', function (req, res) {
                 res.send(req.query)
@@ -158,7 +158,7 @@ describe('server.js', function() {
     describe('# config.connect', function () {
         it('connect', function (done) {
             var app = mose({
-                autoListen: false,
+                listen: false,
                 connect:[
                     function (req, res, next) {
                         res._mose_test_connect_add_sometext = 'mose'

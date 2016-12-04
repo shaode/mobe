@@ -8,8 +8,8 @@ var mose = require('../index')
 var portfinder = require('../lib/vendor/portfinder')
 
 describe('listen.js', function() {
-    describe('# autoListen', function () {
-        it('default autoListen', function (done) {
+    describe('# listen', function () {
+        it('default listen', function (done) {
             var app
             portfinder.getPort(function (err, port) {
                 app = mose({port: port})
@@ -22,10 +22,10 @@ describe('listen.js', function() {
                 })
             })
         })
-        it('autoListen:true', function (done) {
+        it('listen:true', function (done) {
             var app
             portfinder.getPort(function (err, port) {
-                app = mose({port: port, autoListen: true})
+                app = mose({port: port, listen: true})
                 req('http://127.0.0.1:' + app.config.port + '/______nothisurl', function (error, response, body) {
                     if (error) {
                         throw error
@@ -35,10 +35,10 @@ describe('listen.js', function() {
                 })
             })
         })
-        it('autoListen:false', function (done) {
+        it('listen:false', function (done) {
             var app
             portfinder.getPort(function (err, port) {
-                app = mose({port: port, autoListen: false})
+                app = mose({port: port, listen: false})
                 req('http://127.0.0.1:' + app.config.port + '/______nothisurl', function (error, response, body) {
                     if (error) {
                         if (/connect ECONNREFUSED 127\.0\.0\.1/.test(error.message)) {
