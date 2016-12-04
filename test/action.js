@@ -10,6 +10,17 @@ var assert = chai.assert
 var mose = require("../")
 
 describe('action.js', function() {
+    describe('# renderType', function () {
+        it('__renderType: ajax', function (done) {
+            var app = mose({listen: false})
+            app.ajax({
+                type: 'get',
+                url: '/some'
+            })
+            expect(app.actions['/some'][0].__renderType).to.equal('ajax')
+            done()
+        })
+    })
     describe('# trim attr', function (){
         it('url should be a string', function (done) {
             var app = mose({listen: false})
