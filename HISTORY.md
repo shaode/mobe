@@ -1,4 +1,7 @@
 # 历史记录
+### 0.0.35
+
+- `new` `fms.run(config)` `config.afterListen()`
 
 ### 0.0.23
 
